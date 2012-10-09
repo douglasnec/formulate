@@ -1,0 +1,57 @@
+a  {color: #03c}
+a:hover {
+	background-color:#f6c00a;
+	color: #FFFFFF !important;
+	text-decoration: none !important;
+}
+
+/* bot�es */
+.botao {
+	background-color: #999999;
+	color: white;
+	display: inline -block ;
+	font-weight: bold;
+	padding: 0.5em 1em ;
+	
+}
+.botao-topo {
+	background-image: linear -gradient(top, #FFFFFF , #E5E5E5 );
+	border: 1px solid #AAAAAA;
+	border- radius: 15px;
+	color: #FFFFFF ;
+	font-size: 25px ;
+	font-weight: bold;
+	padding: 10px 25px;				
+	text-decoration: none;				
+	border-radius: 13px
+}
+.botoes-topo{
+				margin:120px 0px 0px 10px;				
+				width:40%;
+			}
+.home{
+	
+}
+.botao-primario {
+	background-color: #389739;
+}
+.botao-grande {
+	font-size: 1.1em ;
+}
+.bot�o-pequeno {
+	font-size: 0.9em ;
+}
+.botao-login{
+	float:right;
+	margin: 10px 10px 0px 0px;
+}
+.signup{
+	background:#8DB817;
+}	
+.demo{
+	background:#1881BD;
+}	
+.tour{
+	background:#D93732;
+}	
+/* tratando bot�es */

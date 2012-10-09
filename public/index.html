@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Ruby on Rails: Welcome aboard</title>
+		<link rel= "stylesheet" href= "botoes.css">
     <style type="text/css" media="screen">
       body {
         margin: 0;
@@ -17,15 +18,7 @@
         font-size: 28px;
         color: #000;
       }
-
-      a  {color: #03c}
-      a:hover {
-        background-color: #03c;
-        color: white;
-        text-decoration: none;
-      }
-
-
+			
       #page {
         background-color: #f0f0f0;
         width: 750px;
@@ -33,16 +26,7 @@
         margin-left: auto;
         margin-right: auto;
       }
-
-      #content {
-        float: left;
-        background-color: white;
-        border: 3px solid #aaa;
-        border-top: none;
-        padding: 25px;
-        width: 500px;
-      }
-
+      
       #sidebar {
         float: right;
         width: 175px;
@@ -52,190 +36,146 @@
         clear: both;
       }
 
-      #header, #about, #getting-started {
-        padding-left: 75px;
-        padding-right: 30px;
+      header{
+        padding: 20px 50px 0px 50px;
+				background-position: top left;
+				background-color:#3893C8;
+        height: 200px;				
       }
+			header section{				
+				height: 200px;				
+				background-color:#FFFFFF;
+				border-top-left-radius: 13px;
+				border-top-right-radius: 13px;
+			}
 
-
-      #header {
-        background-image: url("assets/rails.png");
-        background-repeat: no-repeat;
-        background-position: top left;
-        height: 64px;
-      }
-      #header h1, #header h2 {margin: 0}
-      #header h2 {
+      header h1, #header h2 {margin: 0}
+      header h2 {
         color: #888;
         font-weight: normal;
-        font-size: 16px;
+        font-size: 16px;				
+      }			
+			
+			/* menu */			
+			.navbar-inner {
+				background-color: #FFFFFF !important;
+				background-image: -moz-linear-gradient(center top , #f6c00a, #FFE27F) !important;								
+			}			
+			.primary{
+				padding: 0px 46px 0px 46px;
+				height:42px;				
+				background-color:#3893C8;
+			}
+			/* fim menu */
+			
+			/** content */
+			.content-app{				
+				padding: 0px 50px 0px 50px;					
+				background-color:#3893C8;
       }
-
-
-      #about h3 {
-        margin: 0;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      #about-content {
-        background-color: #ffd;
-        border: 1px solid #fc0;
-        margin-left: -55px;
-        margin-right: -10px;
-      }
-      #about-content table {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 11px;
-        border-collapse: collapse;
-      }
-      #about-content td {
-        padding: 10px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-      }
-      #about-content td.name  {color: #555}
-      #about-content td.value {color: #000}
-
-      #about-content ul {
-        padding: 0;
-        list-style-type: none;
-      }
-
-      #about-content.failure {
-        background-color: #fcc;
-        border: 1px solid #f00;
-      }
-      #about-content.failure p {
-        margin: 0;
-        padding: 10px;
-      }
-
-
-      #getting-started {
-        border-top: 1px solid #ccc;
-        margin-top: 25px;
-        padding-top: 15px;
-      }
-      #getting-started h1 {
-        margin: 0;
-        font-size: 20px;
-      }
-      #getting-started h2 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: normal;
-        color: #333;
-        margin-bottom: 25px;
-      }
-      #getting-started ol {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #getting-started li {
-        font-size: 18px;
-        color: #888;
-        margin-bottom: 25px;
-      }
-      #getting-started li h2 {
-        margin: 0;
-        font-weight: normal;
-        font-size: 18px;
-        color: #333;
-      }
-      #getting-started li p {
-        color: #555;
-        font-size: 13px;
-      }
-
-
-      #sidebar ul {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #sidebar ul h3 {
-        margin-top: 25px;
-        font-size: 16px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-      }
-      #sidebar li {
-        list-style-type: none;
-      }
-      #sidebar ul.links li {
-        margin-bottom: 5px;
-      }
-
-      .filename {
-        font-style: italic;
-      }
+			
+			.container-app{				
+				background-color:#FFFFFF;
+			}
+			
+			.intro-app{
+				padding:10px 10px 10px 10px;
+				text-align: justify;				
+			}
+			
+			footer{
+				padding: 0px 50px 50px 50px;
+				background-color:#3893C8;				
+			}
+			
+			.footer{
+				height: 100px;				
+				background-color:#FFFFFF;
+				border-bottom-left-radius: 13px;
+				border-bottom-right-radius: 13px;
+				border-top:1px solid #cccccc;
+			}
+			
+			.clear {
+				clear: both ;
+			}
+			#en{ display:none;}
+			#pt-br{ display:block;} 			
     </style>
-    <script type="text/javascript">
-      function about() {
-        info = document.getElementById('about-content');
-        if (window.XMLHttpRequest)
-          { xhr = new XMLHttpRequest(); }
-        else
-          { xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
-        xhr.open("GET","rails/info/properties",false);
-        xhr.send("");
-        info.innerHTML = xhr.responseText;
-        info.style.display = 'block'
-      }
+		<!-- JQUERY -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+ 
+    <!-- TWITTER BOOTSTRAP CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+ 
+    <!-- TWITTER BOOTSTRAP JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>	    
+    	function visualiza(texto){
+    		if(texto == 1){
+    			$('#en').hide();
+    			$('#pt-br').show();
+    		}else{
+    			$('#en').show();
+    			$('#pt-br').hide();
+    		}
+    	}
     </script>
   </head>
   <body>
-    <div id="page">
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <h3>Browse the documentation</h3>
-            <ul class="links">
-              <li><a href="http://guides.rubyonrails.org/">Rails Guides</a></li>
-              <li><a href="http://api.rubyonrails.org/">Rails API</a></li>
-              <li><a href="http://www.ruby-doc.org/core/">Ruby core</a></li>
-              <li><a href="http://www.ruby-doc.org/stdlib/">Ruby standard library</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div id="content">
-        <div id="header">
-          <h1>Welcome aboard</h1>
-          <h2>You&rsquo;re riding Ruby on Rails!</h2>
-        </div>
-
-        <div id="about">
-          <h3><a href="rails/info/properties" onclick="about(); return false">About your application&rsquo;s environment</a></h3>
-          <div id="about-content" style="display: none"></div>
-        </div>
-
-        <div id="getting-started">
-          <h1>Getting started</h1>
-          <h2>Here&rsquo;s how to get rolling:</h2>
-
-          <ol>
-            <li>
-              <h2>Use <code>rails generate</code> to create your models and controllers</h2>
-              <p>To see all available options, run it without parameters.</p>
-            </li>
-
-            <li>
-              <h2>Set up a default route and remove <span class="filename">public/index.html</span></h2>
-              <p>Routes are set up in <span class="filename">config/routes.rb</span>.</p>
-            </li>
-
-            <li>
-              <h2>Create your database</h2>
-              <p>Run <code>rake db:create</code> to create your database. If you're not using SQLite (the default), edit <span class="filename">config/database.yml</span> with your username and password.</p>
-            </li>
-          </ol>
-        </div>
-      </div>
-
-      <div id="footer">&nbsp;</div>
-    </div>
+		<!-- header -->
+    <header>						
+			<section>			
+				&nbsp;
+				<a href="#" class= ' botao botao-pequeno botao-login ' >Login</a>				
+					<div class='botoes-topo'>
+						<a href="#" class= ' botao-topo signup ' >Inscreva-se</a>
+						<a href="#" class= ' botao-topo demo ' >Demo</a>
+						<a href="#" class= ' botao-topo tour ' >Tour</a>
+					</div>								
+			</section>			
+		</header>
+		<!-- menu -->
+		<nav class="primary">		
+			<div class="navbar">
+				<div class="navbar-inner">
+					<ul class="nav">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Sobre</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Exemplos</a></li>
+						<li><a href="#">Parceiros</a></li>
+						<li><a href="#">Pre&ccedil;os</a></li>
+					</ul>
+				</div>			
+			</div>		
+		</nav>
+		<div class= ' clear ' ></div>
+		<!-- content -->
+		<section class="content-app">
+			<div class="container-app">
+				<div class="intro-app">
+					<a remote="true" class="botao botao-pequeno botao-login" onclick="javascript:visualiza(1);">Pt-BR</a>
+					<a remote="true"  class="botao botao-pequeno botao-login" onclick="javascript:visualiza(2);">En</a>
+					<div class= ' clear ' ></div>
+					<div id='en'>
+						<p>The Introduction</p>					
+						<p>Formulate is a web application that helps anybody build amazing online forms. When you design a form with Formulate, it automatically builds the database, backend and scripts needed to make collecting and understanding your data easy, fast and fun.</p>
+						<p>Because we host everything, all you need is your web browser and a few short minutes to build a form and start using it right away. While we've collected a few of our favorite features here, the best way to experience Formulate is first hand. So be sure to sign up today for free or try out the demo see how form building was meant to be done</p>
+					</div>
+					<div id='pt-br'>
+						<p>Introdu&ccedil;&atilde;o</p>
+						<p>Formulate &eacute; uma aplica&ccedil;&atilde;o web que ajuda qualquer pessoa a criar formul&aacute;rios online. Ao criar formul&aacute;rios com o Formulate, ele automaticamente cria a base de dados, e todos os scripts necess&Aacute;rios para coletar e entender seus dados facilmente, r&aacute;pido e com um visual bem legal.</p>
+						<p>E n&oacute;s o hospedamos, voc&ecirc; s&oacute; precisa de um browser web e alguns minutos para construir um formul&aacute;rio e come&ccedil;ar a usar, com tudo funcionando corretamente.</p>
+					</div>
+				</div>
+			</div>
+							
+		</section>
+		<!-- bottom -->
+		<footer>
+			<section class='footer'></section>
+		</footer>
   </body>
 </html>
