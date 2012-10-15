@@ -44,6 +44,8 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    devise-encryptable (0.1.1)
+      devise (>= 2.1.0.rc)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -128,6 +130,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise (~> 2.1.2)
+  devise-encryptable (~> 0.1.1)
   jquery-rails
   mysql2
   rails (= 3.2.3)

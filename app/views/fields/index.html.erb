@@ -1,0 +1,43 @@
+<h1>Listing fields</h1>
+
+<table>
+  <tr>
+    <th>Form</th>
+    <th>Descryption</th>
+    <th>Choice</th>
+    <th>Lenght</th>
+    <th>Value unique</th>
+    <th>View</th>
+    <th>Min</th>
+    <th>Max</th>
+    <th>Formated</th>
+    <th>Predefined</th>
+    <th>Instruction</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fields.each do |field| %>
+  <tr>
+    <td><%= field.form_id %></td>
+    <td><%= field.descryption %></td>
+    <td><%= field.choice_id %></td>
+    <td><%= field.lenght %></td>
+    <td><%= field.value_unique %></td>
+    <td><%= field.view %></td>
+    <td><%= field.min %></td>
+    <td><%= field.max %></td>
+    <td><%= field.formated %></td>
+    <td><%= field.predefined %></td>
+    <td><%= field.instruction %></td>
+    <td><%= link_to 'Show', field %></td>
+    <td><%= link_to 'Edit', edit_field_path(field) %></td>
+    <td><%= link_to 'Destroy', field, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Field', new_field_path %>

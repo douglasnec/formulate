@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  form_id: 1
+  descryption: MyText
+  choice_id: 1
+  lenght: 1
+  value_unique: MyString
+  view: 1
+  min: 1
+  max: 1
+  formated: 1
+  predefined: MyString
+  instruction: MyText
+
+two:
+  form_id: 1
+  descryption: MyText
+  choice_id: 1
+  lenght: 1
+  value_unique: MyString
+  view: 1
+  min: 1
+  max: 1
+  formated: 1
+  predefined: MyString
+  instruction: MyText

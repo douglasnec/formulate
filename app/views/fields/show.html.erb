@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Form:</b>
+  <%= @field.form_id %>
+</p>
+
+<p>
+  <b>Descryption:</b>
+  <%= @field.descryption %>
+</p>
+
+<p>
+  <b>Choice:</b>
+  <%= @field.choice_id %>
+</p>
+
+<p>
+  <b>Lenght:</b>
+  <%= @field.lenght %>
+</p>
+
+<p>
+  <b>Value unique:</b>
+  <%= @field.value_unique %>
+</p>
+
+<p>
+  <b>View:</b>
+  <%= @field.view %>
+</p>
+
+<p>
+  <b>Min:</b>
+  <%= @field.min %>
+</p>
+
+<p>
+  <b>Max:</b>
+  <%= @field.max %>
+</p>
+
+<p>
+  <b>Formated:</b>
+  <%= @field.formated %>
+</p>
+
+<p>
+  <b>Predefined:</b>
+  <%= @field.predefined %>
+</p>
+
+<p>
+  <b>Instruction:</b>
+  <%= @field.instruction %>
+</p>
+
+
+<%= link_to 'Edit', edit_field_path(@field) %> |
+<%= link_to 'Back', fields_path %>

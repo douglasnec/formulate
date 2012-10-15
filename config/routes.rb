@@ -1,5 +1,19 @@
 Formulate::Application.routes.draw do
-  devise_for :users
+  resources :choices
+
+  resources :fields
+
+  resources :forms
+
+  resources :plans
+
+  resources :accounts
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users do
+     get 'logout' => "devise/sessions#destroy"
+  end
+  match 'home' => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
