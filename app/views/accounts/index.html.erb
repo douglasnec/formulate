@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>User</th>
     <th>Avatar</th>
     <th>Plan</th>
     <th></th>
@@ -14,7 +13,6 @@
 <% @accounts.each do |account| %>
   <tr>
     <td><%= account.name %></td>
-    <td><%= account.user_id %></td>
     <td><%= account.avatar_id %></td>
     <td><%= account.plan_id %></td>
     <td><%= link_to 'Show', account %></td>

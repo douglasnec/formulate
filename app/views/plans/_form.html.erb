@@ -1,4 +1,4 @@
-<%= form_for(@plan) do |f| %>
+<%= form_for(@plan, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @plan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
@@ -11,19 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="control-group">
+    <%= f.label :title, :class => "control-label" %>
+    <div class="controls">
+    	<%= f.text_field :title, :class => 'input-min' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :descryption %><br />
-    <%= f.text_area :descryption %>
+  <div class="control-group">
+    <%= f.label :descryption, :class => "control-label" %>
+    <div class="controls">
+    	<%= f.text_area :descryption, :rows => "8" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
+  <div class="control-group">
+    <%= f.label :value, :class => "control-label" %>
+    <div class="controls">
+    	<%= f.text_field :value %>
+   	</div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit "Send", :class => 'btn btn-primary' %>
   </div>
 <% end %>

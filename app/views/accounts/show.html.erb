@@ -1,25 +1,63 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @account.name %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @account.user_id %>
-</p>
-
-<p>
-  <b>Avatar:</b>
-  <%= @account.avatar_id %>
-</p>
-
-<p>
-  <b>Plan:</b>
-  <%= @account.plan_id %>
-</p>
-
-
+<div id="main" class="dg">
+	<legend>Account Manager</legend>
+	<div class='row'>
+		<div class='span9'>
+			<div class='row'>
+				<div class="span2 radius yellow yellow-border">
+					<div class="radius white image center">
+						<%= image_tag @account.avatar.image.url%>						
+					</div>					
+				</div>
+				<div class="span6">
+					<!-- Barra da URL do usuário -->
+					<div class="radius cian">
+						<div class="row">
+							<div class="span4">
+								<p class='domain'>http://<strong><%= @account.name %></strong>.formulate.com</p>
+							</div>
+							<div class='span2'>
+								<a class="btn btn-domain" href="#">Change Domain</a>
+							</div>
+						</div>
+					</div>			
+					<br />
+					<!-- Informações do usuário -->
+					<div class="span6">
+						<div class="row">
+							<div class='span3'>
+								<strong>User Information</strong><br />
+								<br />
+								<table>
+									<tbody>
+										<tr>
+											<td>Name:</td>
+											<td><%= @account.name %></td>
+										</tr>
+										<tr>
+											<td>Email:</td>
+											<td><%= @user.email %></td>
+										</tr>
+										<tr>
+											<td>Plan:</td>
+											<td><%= @account.plan.title %></td>
+										</tr>
+										<tr><td colspan='2'>&nbsp;</td></tr>
+										<tr>
+											<td colspan="2">
+												<%= link_to "Change User Information", '#', :class => 'btn'%>
+											</td>
+										</tr>										
+									</tbody>
+								</table>
+								<br />
+							</div>
+							<div class='span3'><strong>Acount Usage</strong> <br /></div>
+						</div>
+					</div>				
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
 <%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+

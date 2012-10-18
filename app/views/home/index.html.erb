@@ -1,4 +1,6 @@
-<% if user_signed_in? %>
-	<div><%= link_to "Logout", logout_path, :method => :delete %>
-	| Signed in as <%= current_user.email %></div>
-<% end %>
+<%= YAML::dump(params) %><br />
+<% 
+my_string = current_user.email
+substring = my_string[/[^@]+/]
+%>
+<%= substring %>

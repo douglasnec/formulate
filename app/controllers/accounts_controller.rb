@@ -13,7 +13,8 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
-    @account = Account.find(params[:id])
+    @user = User.find(params[:id])
+    @account = Account.find(@user.account_id)
 
     respond_to do |format|
       format.html # show.html.erb

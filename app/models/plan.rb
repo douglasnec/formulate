@@ -1,3 +1,4 @@
 class Plan < ActiveRecord::Base
-  attr_accessible :descryption, :title, :value
+  has_many :accounts
+  attr_accessible :descryption, :title, :value  
 end

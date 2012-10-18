@@ -1,4 +1,6 @@
 Formulate::Application.routes.draw do
+  resources :avatars
+
   resources :choices
 
   resources :fields

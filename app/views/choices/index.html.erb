@@ -1,13 +1,15 @@
-<h1>Listing choices</h1>
+<h3>Listing choices</h3>
 
-<table>
+<table class="table table-hover">
+  <thead>
   <tr>
     <th>Descryption</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @choices.each do |choice| %>
   <tr>
     <td><%= choice.descryption %></td>
@@ -16,8 +18,9 @@
     <td><%= link_to 'Destroy', choice, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Choice', new_choice_path %>
+<%= link_to 'New Choice', new_choice_path, :class => "btn btn-primary" %>

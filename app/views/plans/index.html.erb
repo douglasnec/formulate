@@ -1,6 +1,6 @@
-<h1>Listing plans</h1>
-
-<table>
+<legend>Listing plans</legend>
+<table class='table table-hover'>
+  </thead>
   <tr>
     <th>Title</th>
     <th>Descryption</th>
@@ -9,19 +9,21 @@
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @plans.each do |plan| %>
   <tr>
-    <td><%= plan.title %></td>
+    <td class='span2'><%= plan.title %></td>
     <td><%= plan.descryption %></td>
     <td><%= plan.value %></td>
-    <td><%= link_to 'Show', plan %></td>
-    <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-    <td><%= link_to 'Destroy', plan, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <td class='span1'><%= link_to content_tag(:i, 'Show', :class => "icon-file").html_safe, plan %></td>
+    <td class='span1'><%= link_to content_tag(:i, 'Edit', :class => "icon-edit").html_safe, edit_plan_path(plan) %></td>
+    <td class='span2'><%= link_to content_tag(:i, 'Delete', :class => "icon-minus-sign").html_safe, plan, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>  
 <% end %>
+  </tbody>
 </table>
+<div class="form-actions">
+	<%= link_to 'New Plan', new_plan_path, :class => 	'btn' %>
+</div>
 
-<br />
-
-<%= link_to 'New Plan', new_plan_path %>

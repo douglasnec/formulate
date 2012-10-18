@@ -1,0 +1,31 @@
+<legend>Listing avatars</legend>
+
+<table>	
+  <tbody>
+<%  c = 0
+	@avatars.each do |avatar| %>
+	<% 
+	if c == 0 %>
+		<tr><%
+	end
+	%>  
+  	<td class="span2 center"><%= image_tag avatar.image.url, :size => "40x40" %><br />
+    <% if avatar.flag == 1 %>Feminino<% else %>Masculino<% end %><br />
+    <%= link_to content_tag(:i, 'Show', :class => "icon-file").html_safe, avatar %><br />
+    <%= link_to content_tag(:i, 'Delete', :class => "icon-minus-sign").html_safe, avatar, confirm: 'Are you sure?', method: :delete %><br />
+    <%
+    if c == 6 %>
+    	</tr><%
+    	c = 0
+    else
+    	c = c + 1
+    end
+    %>
+<% end %>
+	</tr>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Avatar', new_avatar_path, :class => 'btn' %>

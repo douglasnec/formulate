@@ -1,3 +1,34 @@
 // Place all the styles related to the Accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.radius{
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.cian{
+  background-color: #F0F0F0;
+}
+.yellow{
+  background-color: #FFEE99;  
+}
+.yellow-border{
+  border: 1px solid #F0E08C;
+}
+.white{
+  background-color: #FFFFFF;
+}
+.btn-domain{
+  margin:10px 10px 20px 20px;
+}
+.domain{
+  margin:16px 10px 12px 20px;
+  font-size:14px;
+  color:red;
+}
+.image{
+  margin:20px 20px 20px 20px;  
+}
+.btn-avatar{
+  width:101px;
+}
