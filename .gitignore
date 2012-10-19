@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore configs BD
+/config/database.yml
+
+# Images
+/public/system/*.*
