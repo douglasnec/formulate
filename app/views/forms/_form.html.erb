@@ -12,7 +12,7 @@
 			  </div>
 			  <div class="field">
 			    <%= f.label :align_label, "Label Placement" %>
-			    <%= select_tag :align_label, options_for_select([['Top Aligned', 1], ['Left Aligned', 2], ['Right Aligned', 3]])  %>
+			    <%= select_tag "form[align_label]", options_for_select([['Top Aligned', 1], ['Left Aligned', 2], ['Right Aligned', 3]])  %>
 			  </div>
 			  <div class="field">
 				<%= f.label :confirmations, "Confirmation Options" %>
@@ -22,17 +22,30 @@
 			</div>
 			<div class="span8">
 			  <%= f.hidden_field :account_id %>  
-			  <div class="formButtons">
-			  	<table>
-			  		<tr><td class="span1">
-			  		<%= button_to "Add Field", "#", :remote => true, :class => "btn btn-primary btn-large" %>
-			  		</td>
-			  		<td class='span1'>&nbsp;</td>
-			  		<td class="span1">
-			  		<%= f.submit :class => "btn btn-primary btn-large" %>
-			  		</td></tr>
-			    </table>
-			  </div>
+			  <div id="stage" class="afi">
+			  	  <div id='main'>
+			  	  	<form id="formPreview">
+			  	  		<% if !@form.nil?%>
+			  	  			<div id="form-title">
+			  	  				<strong></strong><%=@form.name%></strong><br />
+			  	  				<%= @form.descryption %>
+			  	  				
+			  	  			</div> 
+			  	  		<% end %>
+			  	  	</form>
+			  	  </div>
+				  <div class="formButtons">
+				  	<table>
+				  		<tr><td class="span1">
+				  		<%= button_to "Add Field", "#", :remote => true, :class => "btn btn-primary btn-large" %>
+				  		</td>
+				  		<td class='span1'>&nbsp;</td>
+				  		<td class="span1">
+				  		<%= f.submit "Save Form", :class => "btn btn-primary btn-large" %>
+				  		</td></tr>
+				    </table>
+				  </div>
+				</div>
 			</div>  
 		</div>
   </div>
