@@ -36,6 +36,8 @@ class AccountsController < ApplicationController
   # GET /accounts/1/edit
   def edit
     @account = Account.find(params[:id])
+    @avatars = Avatar.all
+    @plans = Plan.all
   end
 
   # POST /accounts
@@ -57,7 +59,7 @@ class AccountsController < ApplicationController
   # PUT /accounts/1
   # PUT /accounts/1.json
   def update
-    @account = Account.find(params[:id])
+    @account = Account.find(params[:id])    
 
     respond_to do |format|
       if @account.update_attributes(params[:account])

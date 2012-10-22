@@ -1,4 +1,4 @@
-<%= form_for(@account) do |f| %>
+<%= form_for(@account, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @account.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -11,23 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+  	<%= f.label :name, :class => "control" %>
+  	<div class="control">
+    	<%= f.text_field :name %>    
+    <div class="cian radius">http://<span id="span_name"><%= @account.name %></span>.formulate.com</div>
+    </div>
+  </div>  
+  <div class="control-group">
+    <%= f.label :avatar_id %>Clique on image to change 
+    <div class="control form-actions yellow radius">
+    	<div class="row">
+    	<%= f.hidden_field :avatar_id %>
+    	<%
+    	@avatars.each do |a| %>
+    		<div class="span1 <%= verify_selected(a) %>" id="avatar_<%= a.id %>" onclick="javascript:select_avatar(<%= a.id %>);" data-remote=true>
+	    		<div class="thumbnail">
+	    			<%= image_tag a.image.url %>	    			
+	    		</div>
+	    	</div>
+    	<%
+    	end    
+    	%>
+    	</div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+  <br />
+  <div class="control-group">
+    <%= f.label :plan_id %>
+    <div class="control">
+    	<%= f.collection_select :plan_id, @plans, :id, :title, :prompt => true %>
+    </div>	    
   </div>
-  <div class="field">
-    <%= f.label :avatar_id %><br />
-    <%= f.number_field :avatar_id %>
-  </div>
-  <div class="field">
-    <%= f.label :plan_id %><br />
-    <%= f.number_field :plan_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit "Send", :class => 'btn btn-primary' %>
   </div>
 <% end %>

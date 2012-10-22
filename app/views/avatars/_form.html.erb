@@ -11,14 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">    
-    <%= select_tag :flag, options_for_select([['Feminino', 1], ['Masculino', 2]]) %>
+  <div class="control-group">
+  	<%= f.label :flag,  :class => "control-label" %>
+  	<div class="control">  	    
+    <%= select_tag 'avatar[flag]', options_for_select([['Feminino', 1], ['Masculino', 2]]) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :image %><br />
+  <div class="control-group">
+    <%= f.label :image,  :class => "control-label" %>
+    <div class="control">
     <%= f.file_field :image %>
+    </div>
   </div>
-  <div class="actions">
+  <div class="form-actions">
     <%= f.submit %>
   </div>
 <% end %>

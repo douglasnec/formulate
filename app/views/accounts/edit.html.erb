@@ -1,6 +1,7 @@
-<h1>Editing account</h1>
+<legend>Editing account</legend>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @account %> |
-<%= link_to 'Back', accounts_path %>
+<div class="form-actions">
+	<%= link_to 'Show', @account, :class => 'btn' %> 
+	<%= link_to 'Back', accounts_path, :class => "btn" %>
+</div>
