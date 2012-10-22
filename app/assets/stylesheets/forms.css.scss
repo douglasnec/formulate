@@ -1,3 +1,42 @@
-// Place all the styles related to the Forms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+input.text, textarea.textarea, select.select{
+  color:#333333;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 7px 7px 7px 7px;
+  margin:0;
+  padding:3px;  
+  
+}
+.forms{
+  background-color:#E7FFCF;  
+  padding:10px 10px;
+  border:2px solid #C2EF97; 
+}
+.large{
+  width:95%
+}
+
+.textarea{
+  height: 5em;
+}
+.tooLong #formButtons[id]{
+  position: fixed;
+}
+.formButtons[id]{
+  bottom: 0;
+  left: 50%;
+  margin-left: -130px;
+  position: absolute;
+  z-index:1000;
+}
+.formButtons{
+  background: none repeat scroll 0 0 #FFF6BF;
+  border-top: 1px solid #F7DA77;
+  padding: 25px 0 30px;
+  text-align:center;
+  width: 630px;
+}
+
+.div-large{
+  height:68px;
+}

@@ -1,37 +1,39 @@
 <%= form_for(@form) do |f| %>
-  <% if @form.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
-
-      <ul>
-      <% @form.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :descryption %><br />
-    <%= f.text_area :descryption %>
-  </div>
-  <div class="field">
-    <%= f.label :align_label %><br />
-    <%= f.text_field :align_label %>
-  </div>
-  <div class="field">
-    <%= f.label :confirmations %><br />
-    <%= f.number_field :confirmations %>
-  </div>
-  <div class="field">
-    <%= f.label :account_id %><br />
-    <%= f.number_field :account_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="container-fluid">
+  	<div class="row-fluid">
+	  		<div class="span4 forms">  
+			  <div class="field">
+			    <%= f.label :name, "Form Name" %>
+			    <%= f.text_field :name, :class => "text large" %>
+			  </div>
+			  <div class="field">
+			    <%= f.label :descryption, "Description" %>
+			    <%= f.text_area :descryption, :class => "textarea large" %>
+			  </div>
+			  <div class="field">
+			    <%= f.label :align_label, "Label Placement" %>
+			    <%= select_tag :align_label, options_for_select([['Top Aligned', 1], ['Left Aligned', 2], ['Right Aligned', 3]])  %>
+			  </div>
+			  <div class="field">
+				<%= f.label :confirmations, "Confirmation Options" %>
+				Show Text
+			    <%= f.text_area :confirmations, :class => "textarea large"  %>
+			  </div>  
+			</div>
+			<div class="span8">
+			  <%= f.hidden_field :account_id %>  
+			  <div class="formButtons">
+			  	<table>
+			  		<tr><td class="span1">
+			  		<%= button_to "Add Field", "#", :remote => true, :class => "btn btn-primary btn-large" %>
+			  		</td>
+			  		<td class='span1'>&nbsp;</td>
+			  		<td class="span1">
+			  		<%= f.submit :class => "btn btn-primary btn-large" %>
+			  		</td></tr>
+			    </table>
+			  </div>
+			</div>  
+		</div>
   </div>
 <% end %>

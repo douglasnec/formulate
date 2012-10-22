@@ -4,7 +4,7 @@ class CreateForms < ActiveRecord::Migration
       t.string :name
       t.text :descryption
       t.string :align_label
-      t.integer :confirmations
+      t.text :confirmations
       t.integer :account_id
 
       t.timestamps
