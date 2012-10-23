@@ -80,4 +80,11 @@ class FieldsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # def addtext
+  #  @field = Field.new
+  #  respond_to do |format|
+  #    format.js { @field }
+  #  end    
+  #end
 end
