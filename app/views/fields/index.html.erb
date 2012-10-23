@@ -1,43 +1,47 @@
-<h1>Listing fields</h1>
+<legend>Add a Field</legend>
+<div id='table-buttons'>
+	<table>
+		<tr>
+			<td colspan="2">Standard</td>			
+		</tr>
+		<tr>
+			<td class="span3">
+				<%= link_to "<strong>ABC</strong>".html_safe+"  Single Line Text", '#', :class => "btn btn-default", :id => "addinput" %>
+			</td>
+			<td>&nbsp;&nbsp;</td>
+			<td class="span3">
+				<%= link_to "<strong>123</strong>".html_safe+"  Single Line Text", "#", :class => "btn btn-default" %>
+			</td>
+		</tr>
+		<tr>
+			<td class="span3">
+				<%= link_to content_tag(:i, ' Paragraph Text', :class => "icon-align-justify").html_safe, "#", :class => 'btn btn-default' %>
+				
+			</td>
+			<td>&nbsp;&nbsp;</td>
+			<td class="span3">
+				<%= link_to content_tag(:i, ' Checkboxes', :class => "icon-ok").html_safe, "#", :class => 'btn btn-default' %>
+			</td>
+		</tr>
+		<tr>
+			<td class="span3">
+				<%= link_to content_tag(:i, ' Multiple Choices', :class => "icon-th-list").html_safe, "#", :class => 'btn btn-default' %>
+				
+			</td>
+			<td>&nbsp;&nbsp;</td>
+			<td class="span3">
+				<%= link_to content_tag(:i, ' Dropdown', :class => "icon-list").html_safe, "#", :class => 'btn btn-default' %>
+			</td>
+		</tr>
+	</table>
+</div>
 
-<table>
-  <tr>
-    <th>Form</th>
-    <th>Descryption</th>
-    <th>Choice</th>
-    <th>Lenght</th>
-    <th>Value unique</th>
-    <th>View</th>
-    <th>Min</th>
-    <th>Max</th>
-    <th>Formated</th>
-    <th>Predefined</th>
-    <th>Instruction</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id='main'>
+	<form id="formPreview">
+		<div id='fields'>
+			<%# = render :partial => 'addtext' 
+			%>			
+		</div>	
+	</form>
+</div>
 
-<% @fields.each do |field| %>
-  <tr>
-    <td><%= field.form_id %></td>
-    <td><%= field.descryption %></td>
-    <td><%= field.choice_id %></td>
-    <td><%= field.lenght %></td>
-    <td><%= field.value_unique %></td>
-    <td><%= field.view %></td>
-    <td><%= field.min %></td>
-    <td><%= field.max %></td>
-    <td><%= field.formated %></td>
-    <td><%= field.predefined %></td>
-    <td><%= field.instruction %></td>
-    <td><%= link_to 'Show', field %></td>
-    <td><%= link_to 'Edit', edit_field_path(field) %></td>
-    <td><%= link_to 'Destroy', field, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Field', new_field_path %>
