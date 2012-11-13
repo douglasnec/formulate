@@ -12,9 +12,7 @@ input.text, textarea.textarea, select.select{
   padding:10px 10px;
   border:2px solid #C2EF97; 
 }
-.large{
-  width:95%
-}
+
 
 .textarea{
   height: 5em;
@@ -44,4 +42,97 @@ input.text, textarea.textarea, select.select{
 #main{
   position: relative;
   min-height: 285px; 
+}
+.table-links{
+  width:100%;
+}
+.form-title{
+  border-bottom: 1px dotted #CCCCCC;
+  padding:5px 5px 5px 5px;
+}
+.form-title:hover{
+  border:1px dashed #CCCCCC;
+  padding:4px 4px 4px 4px;
+}
+form li{
+  list-style-type: none;
+}
+#formPreview li{
+  background-color: transparent;
+  clear: both;
+  padding:6px 1% 9px;
+}
+.wufoo{
+  width: 64%;
+}
+#formPreview li{
+  background-color: transparent;
+  border: 1px dotted transparent;
+  margin: 0 0 1px;
+}
+#formPreview li, #formPreview li * {
+  cursor: pointer !important;
+}
+#formPreview li:hover{
+  border:1px dashed #CCCCCC;
+    
+}
+#formPreview li{
+  position: relative;
+}
+.font-big{
+  font-size:16px;
+}
+
+.fieldActions{
+  background: none repeat scroll 0 0 #F5F5F5;
+  border: 1px solid #BBBBBB;
+  border-radius:12px 12px 12px 12px;
+  bottom: -15px;
+  box-shadow: 0 1xp 3px rgba(0, 0, 0, 0.15);
+  line-height: 18px;
+  margin: 0 !important;
+  min-width: 0  !important;
+  padding: 5px 4px 2px !important;
+  position: absolute;
+  right: -15px;
+  text-align: center;
+  width: auto !important;
+  z-index: 9000 !important;  
+}
+form li.focused .instruct, form li:hover .instruct{
+  left:100%;
+  opacity: 1;
+  visibility: visible;
+}
+form .instruct{
+  background: none repeat scroll 0 0 #F5F5F5;
+  border: 1px solid #E6E6E6;
+  font-size: 105%;
+  left: 0;
+  opacity: 0;
+  padding:8px 10px 10px;
+  margin-left:10px;
+  position: absolute;
+  top: 0;
+  transition: opacity 350ms ease-out 0s;
+  visibility: hidden;
+  width: 45%;
+  z-index:1000;
+}
+// tamanho dos inputs
+.large{
+  width:90%
+}
+.medium{
+  width:50%  
+}
+.small{
+  width:25%  
+}
+
+// selecionando campo
+.page-indicator{
+  background-color: #DFEFFF !important;
+  border:  1px solid #C2D7EF !important;
 }

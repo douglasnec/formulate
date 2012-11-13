@@ -25,7 +25,7 @@ class FormsController < ApplicationController
   # GET /forms/new.json
   def new
     @form = Form.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @form }
@@ -35,6 +35,7 @@ class FormsController < ApplicationController
   # GET /forms/1/edit
   def edit
     @form = Form.find(params[:id])
+    @fields = @form.fields
   end
 
   # POST /forms
@@ -72,12 +73,30 @@ class FormsController < ApplicationController
   # DELETE /forms/1
   # DELETE /forms/1.json
   def destroy
-    @form = Form.find(params[:id])
-    @form.destroy
+    @form = Form.find(params[:id])    
 
     respond_to do |format|
       format.html { redirect_to forms_url }
       format.json { head :no_content }
     end
+  end
+  
+  def addtext
+    @form = Form.find(params[:form_id])
+    @field = @form.fields.build
+    @field.save    
+  end
+  
+  def remfield
+    busca = Field.find(:all, :conditions => {:id => params[:form_id]})
+    @field = busca.first
+    @last_id = @field.id 
+    @field.destroy        
+  end
+  
+  def getfield
+    #render 'print', params => params
+    @fields = Field.find(:all, :conditions => {:id => params[:id], :form_id => params[:form_id]})
+    @field = @fields.first
   end
 end

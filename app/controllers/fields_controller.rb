@@ -81,10 +81,11 @@ class FieldsController < ApplicationController
     end
   end
   
-  # def addtext
-  #  @field = Field.new
-  #  respond_to do |format|
-  #    format.js { @field }
-  #  end    
-  #end
+  def addtext
+    @field = Field.new
+
+    respond_to do |format|
+      format.js { render :partial => "fields/addtext", :locals => {:field => @field}, :layout => false  }
+    end    
+  end
 end

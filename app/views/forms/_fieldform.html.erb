@@ -1,0 +1,71 @@
+<script type='text/javascript'>
+$('#field_label').change(function(){
+  	changeLabel()
+  }) 
+ $('#field_descryption').change(function(){
+ 	changeDescription()
+ })
+ $('#field_lenght').change(function(){
+ 	changeFieldSize()
+ })
+ </script>
+<%= form_for(@field) do |f| %>
+  <li id="listTitle" class="field">  	
+  	<label class="desc">
+    <%= f.label :label %>
+	</label>
+	<div>
+    	<%= f.text_field :label, :class => "input-xlarge" %>
+   	</div>
+  </li>  
+  <li id="listTitle" class="field">  	
+  	<%= f.hidden_field :form_id %>
+    <%= f.hidden_field :id%>
+    <label class="desc">
+    <%= f.label :descryption %>
+	</label>
+	<div>
+    	<%= f.text_area :descryption, :size => '35x5', :class => 'input-xlarge' %>
+   	</div>
+  </li>
+  
+  <div class="field">
+    <%= f.label :choice_id %><br />
+    <%= f.number_field :choice_id %>
+  </div>
+  <div class="field">
+    <label><%= f.label :lenght, "Field Size:" %></label>    
+    <%= select_tag "field[lenght]", options_for_select([['Small', 0], ['Medium', 1], ['Large', 2]], 2)  %>
+  </div>
+  <div class="field">
+    <%= f.label :value_unique %><br />
+    <%= f.text_field :value_unique %>
+  </div>
+  <div class="field">
+    <%= f.label :view %><br />
+    <%= f.number_field :view %>
+  </div>
+  <div class="field">
+    <%= f.label :min %><br />
+    <%= f.number_field :min %>
+  </div>
+  <div class="field">
+    <%= f.label :max %><br />
+    <%= f.number_field :max %>
+  </div>
+  <div class="field">
+    <%= f.label :formated %><br />
+    <%= f.number_field :formated %>
+  </div>
+  <div class="field">
+    <%= f.label :predefined %><br />
+    <%= f.text_field :predefined %>
+  </div>
+  <div class="field">
+    <%= f.label :instruction %><br />
+    <%= f.text_area :instruction %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

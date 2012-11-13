@@ -1,0 +1,34 @@
+<div id='table-buttons'>
+	<table id='table-links'>
+		<tr>
+			<td>Standard</td>			
+		</tr>
+		<tr>
+			<td>
+				<%= link_to "<strong>ABC</strong>".html_safe+"  Single Line Text", 'addtext', :class => "btn btn-default", :id => "addinput", :remote => :true %>
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<%= link_to "<strong>123</strong>".html_safe+"  Single Line Text", "#", :class => "btn btn-default" %>				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to content_tag(:i, ' Paragraph Text', :class => "icon-align-justify").html_safe, "#", :class => 'btn btn-default' %>				
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<%= link_to content_tag(:i, ' Checkboxes', :class => "icon-ok").html_safe, "#", :class => 'btn btn-default' %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to content_tag(:i, ' Multiple Choices', :class => "icon-th-list").html_safe, "#", :class => 'btn btn-default' %>			
+			</td>
+			<td>&nbsp;</td>
+			<td>
+				<%= link_to content_tag(:i, ' Dropdown', :class => "icon-list").html_safe, "#", :class => 'btn btn-default' %>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -3,11 +3,14 @@ Formulate::Application.routes.draw do
 
   resources :choices
 
-  resources :fields do
-    get 'addtext' => "fields#addtext"
+  resources :forms do
+    resources :fields  
+    get 'addtext'  
+    delete 'remfield'
+    post 'getfield'
   end
-
-  resources :forms
+  
+  resources :fields
 
   resources :plans
 

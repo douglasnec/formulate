@@ -1,37 +1,49 @@
+<%= javascript_include_tag "forms", :media => "all" %>
 <%= form_for(@form) do |f| %>
   <div class="container-fluid">
   	<div class="row-fluid">
-	  		<div class="span4 forms">  
-			  <div class="field">
-			    <%= f.label :name, "Form Name" %>
-			    <%= f.text_field :name, :class => "text large" %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :descryption, "Description" %>
-			    <%= f.text_area :descryption, :class => "textarea large" %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :align_label, "Label Placement" %>
-			    <%= select_tag "form[align_label]", options_for_select([['Top Aligned', 1], ['Left Aligned', 2], ['Right Aligned', 3]])  %>
-			  </div>
-			  <div class="field">
-				<%= f.label :confirmations, "Confirmation Options" %>
-				Show Text
-			    <%= f.text_area :confirmations, :class => "textarea large"  %>
-			  </div>  
+	  		<div class="span5 forms" style="width:380px !important;">
+	  		  <!-- ABAS -->	
+	  			
+	  			
+	  		   <ul id=''myTab' class="nav nav-tabs" >
+	  		   	<li><a href="#forms" data-toggle="tab">Form Settings</a></li>
+	  		   	<li><a href="#addfield" data-toggle="tab">Add a Field</a></li>
+	  		   	<li><a href="#setfield" data-toggle="tab">Field Settings</a></li>
+	  		   </ul>
+	  		   
+	  		   <div id='myTabContent' class="tab-content">
+		  		  <div id="forms" class="tab-pane fade">
+		  		  	<%= render "forms", :f => f %>
+		  		  </div>	
+		  		  <div id="addfield" class="tab-pane fade">
+		  		  	<%= render "addfield" %>
+		  		  </div>
+		  		  <div id="setfield" class="tab-pane fade">		  		  	
+		  		  </div>
+		  		</div>
+		  		<!-- FIM ABAS -->    
 			</div>
-			<div class="span8">
+			<div class="span7">
 			  <%= f.hidden_field :account_id %>  
 			  <div id="stage" class="afi">
 			  	  <div id='main'>
-			  	  	<form id="formPreview">
-			  	  		<% if !@form.nil?%>
-			  	  			<div id="form-title">
-			  	  				<strong></strong><%=@form.name%></strong><br />
-			  	  				<%= @form.descryption %>			  	  				
-			  	  			</div> 
-			  	  		<% end %>
-			  	  	</form>
+			  	  	<div id="formPreview">
+				  	  	<form id="formPreview">
+				  	  		<% if !@form.nil?%>
+				  	  			<div class="form-title">
+				  	  				<h3><strong><%=@form.name%></strong><br /></h3>
+				  	  				<%= @form.descryption %><br /><br />		  	  				
+				  	  			</div>				  	  			
+				  	  			<% 
+				  	  			if @form.fields.count > 0
+				  	  			  @form.fields.each do |field|%> 
+				  	  				<%= render('text', :field => field) %>
+				  	  			<% end 
+				  	  			end
+				  	  		   end %>			  	  		
+				  	  	</form>
+			  	  	</div>
 			  	  </div>
 				  <div class="formButtons">
 				  	<table>

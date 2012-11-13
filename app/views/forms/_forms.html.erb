@@ -1,0 +1,17 @@
+<div class="field">
+    <%= f.label :name, "Form Name" %>
+    <%= f.text_field :name, :class => "text large" %>
+  </div>
+  <div class="field">
+    <%= f.label :descryption, "Description" %>
+    <%= f.text_area :descryption, :class => "textarea large" %>
+  </div>
+  <div class="field">
+    <%= f.label :align_label, "Label Placement" %>
+    <%= select_tag "form[align_label]", options_for_select([['Top Aligned', 1], ['Left Aligned', 2], ['Right Aligned', 3]])  %>
+  </div>
+  <div class="field">
+	<%= f.label :confirmations, "Confirmation Options" %>
+	Show Text
+    <%= f.text_area :confirmations, :class => "textarea large"  %>
+  </div>
