@@ -60,13 +60,7 @@ class FormsController < ApplicationController
     @form = Form.find(params[:id])
 
     respond_to do |format|
-      if @form.update_attributes(params[:form])
-        format.html { redirect_to edit_form_path @form, notice: 'Form was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @form.errors, status: :unprocessable_entity }
-      end
+      @form.update_attributes(params[:form])        
     end
   end
 
@@ -98,5 +92,28 @@ class FormsController < ApplicationController
     #render 'print', params => params
     @fields = Field.find(:all, :conditions => {:id => params[:id], :form_id => params[:form_id]})
     @field = @fields.first
+  end
+  
+  def update_field
+    @field = Field.find(params[:id])
+    # var campos[:field] = params
+    if @field.update_attributes(
+      :label        => params[:label],
+      :descryption  => params[:descryption],
+      :min          => params[:min],
+      :max          => params[:max],
+      :predefined   => params[:predefined],
+      :instruction  => params[:instruction],
+      :value_unique => params[:value_unique],
+      :view         => params[:view],
+      :formated     => params[:formated],
+      :lenght       => params[:lenght]
+    )  
+      flash[:notice] = "Salvo com sucesso."  
+    else
+      flash[:notice] = "Erro ao salvar"
+    end
+    # @field.save       
+    # @field.update_attributes(:fields => params[:fields])
   end
 end

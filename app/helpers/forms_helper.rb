@@ -1,8 +1,8 @@
 module FormsHelper
   # formata o label dos campos text
   def label_field(field)
-    if field.descryption
-      field.descryption
+    if field.label
+      field.label
     else
       "Campo sem label:"
     end
@@ -22,5 +22,21 @@ module FormsHelper
       'large'
     end
   end
-    
+  
+  def verificaRequired
+    if @field.value_unique == 1
+      'true'
+    else
+      'false'
+    end
+  end
+  
+  
+  def verificaShow(valor)
+    if @field.view.to_s == valor.to_s
+      'true'
+    else
+      'false'
+    end
+  end    
 end

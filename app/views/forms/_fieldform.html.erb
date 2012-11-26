@@ -2,14 +2,14 @@
 $('#field_label').change(function(){
   	changeLabel()
   }) 
- $('#field_descryption').change(function(){
- 	changeDescription()
+ $('#field_instruction').change(function(){
+ 	changeInstruction()
  })
  $('#field_lenght').change(function(){
  	changeFieldSize()
  })
  </script>
-<%= form_for(@field) do |f| %>
+<%= form_for(@field,:url => "#", :remote => true) do |f| %>
   <li id="listTitle" class="field">  	
   	<label class="desc">
     <%= f.label :label %>
@@ -21,51 +21,46 @@ $('#field_label').change(function(){
   <li id="listTitle" class="field">  	
   	<%= f.hidden_field :form_id %>
     <%= f.hidden_field :id%>
-    <label class="desc">
-    <%= f.label :descryption %>
-	</label>
-	<div>
-    	<%= f.text_area :descryption, :size => '35x5', :class => 'input-xlarge' %>
-   	</div>
-  </li>
-  
-  <div class="field">
-    <%= f.label :choice_id %><br />
-    <%= f.number_field :choice_id %>
-  </div>
+    <%= f.hidden_field :descryption, :value => "1" %>   	
+  </li>  
   <div class="field">
     <label><%= f.label :lenght, "Field Size:" %></label>    
     <%= select_tag "field[lenght]", options_for_select([['Small', 0], ['Medium', 1], ['Large', 2]], 2)  %>
   </div>
-  <div class="field">
-    <%= f.label :value_unique %><br />
-    <%= f.text_field :value_unique %>
+  <div class="field-options">
+    <label><strong>Options</strong></label>
+    Required ? <%= check_box_tag "field[value_unique]",  "1", :onclick => "addremRequired();" %>
+  </div>
+  <div class="field-options">
+    <label><strong>Show Field to</strong></label>
+    <%= verificaShow('1')+" "+verificaShow('2')  %>
+    <%= radio_button_tag "field[view]",  "1", false, :onclick => "showField(1);", :checked => verificaShow('1') %> Everyone <br />
+    <%= radio_button_tag "field[view]",  "2", false, :onclick => "showField(2);", :checked => verificaShow('2') %> Admin Only <br />
+  </div>
+  <div class="field-options">
+  	<label><strong>Range</strong></label>    
+    	<table>
+    		<tr>
+	    		<th class="left"><%= f.label :min %></th>
+	    		<th class="left"><%= f.label :max %></th>
+	    		<th class="left"><%= f.label :formated %></th>
+    		</tr>
+    		<tr>
+				<td class="left"><%= f.number_field :min, :class=> 'medium' %></td>
+				<td class="left"><%= f.number_field :max, :class => 'medium' %> </td>
+				<td class="left"><%= select_tag "field[formated]", options_for_select([['Characters', 1], ['Words', 2]], @field.formated), :class => 'formated-select'%></td>  		
+    		</tr>
+    	</table>    
   </div>
   <div class="field">
-    <%= f.label :view %><br />
-    <%= f.number_field :view %>
-  </div>
-  <div class="field">
-    <%= f.label :min %><br />
-    <%= f.number_field :min %>
-  </div>
-  <div class="field">
-    <%= f.label :max %><br />
-    <%= f.number_field :max %>
-  </div>
-  <div class="field">
-    <%= f.label :formated %><br />
-    <%= f.number_field :formated %>
-  </div>
-  <div class="field">
-    <%= f.label :predefined %><br />
+    <label><%= f.label :predefined, "Predefine Values" %></label>
     <%= f.text_field :predefined %>
   </div>
   <div class="field">
-    <%= f.label :instruction %><br />
-    <%= f.text_area :instruction %>
+    <label><%= f.label :instruction, "Instruction for User" %></label>
+    <%= f.text_area :instruction, :size => '35x5', :class => 'input-xlarge'  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to "Enviar", "#", :onclick => "salvarField();", :class => "btn", :remote => true %>
   </div>
 <% end %>

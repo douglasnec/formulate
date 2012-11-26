@@ -3,9 +3,9 @@
 		<%= label_field(field) %>
 	</label>
 	<div>
-		<input type="text" id="Field<%= field.id %>" name="Field" class="text <%= lenght_input(field) %> field" onkeynup="handleInput(this);" onchange="handInput(this);" readonly="readonly">
+		<input type="text" id="Field<%= field.id %>" name="Field" class="text <%= lenght_input(field) %> field" onkeynup="handleInput(this);" onchange="handInput(this);" readonly="readonly" value="<%= field.predefined if field.predefined %>">
 	</div>	
-	<p id="instruction<%= field.id %>" class="instruct">Testando</p>
+	<p id="instruction<%= field.id %>" class="instruct"><%= field.instruction %></p>
 	<div id="fa<%= field.id %>" class="fieldActions">
 		<%= link_to content_tag(:i, '', :class => "icon-plus-sign font-green font-big").html_safe, "#" %>
     	<%= link_to content_tag(:i, '', :class => "icon-minus-sign font-red font-big").html_safe, form_remfield_path(field.id), confirm: 'Are you sure?', :method => :delete, :remote => true %><br />

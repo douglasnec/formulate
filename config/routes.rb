@@ -4,10 +4,11 @@ Formulate::Application.routes.draw do
   resources :choices
 
   resources :forms do
-    resources :fields  
+    resources :fields
     get 'addtext'  
     delete 'remfield'
     post 'getfield'
+    post 'update_field'
   end
   
   resources :fields

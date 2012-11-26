@@ -56,17 +56,10 @@ class FieldsController < ApplicationController
   # PUT /fields/1
   # PUT /fields/1.json
   def update
-    @field = Field.find(params[:id])
-
-    respond_to do |format|
-      if @field.update_attributes(params[:field])
-        format.html { redirect_to @field, notice: 'Field was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @field.errors, status: :unprocessable_entity }
-      end
-    end
+    # @field = Field.find(params[:id])
+    # @field.update_attributes(params[:field])
+    render 'print', params
+    
   end
 
   # DELETE /fields/1
