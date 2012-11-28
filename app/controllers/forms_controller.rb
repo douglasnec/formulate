@@ -78,7 +78,42 @@ class FormsController < ApplicationController
   def addtext
     @form = Form.find(params[:form_id])
     @field = @form.fields.build
-    @field.save    
+    @field.assign_attributes({
+      :descryption => 1, # text
+      :lenght => 2,
+      :value_unique  => 0,
+      :view => 1,
+      :formated => 1,
+      :label => "Sem Label"
+    })
+    @field.save
+  end
+  
+  def addtextnumeric
+    @form = Form.find(params[:form_id])
+    @field = @form.fields.build
+    @field.assign_attributes({
+      :descryption => 2, # text numeric
+      :lenght => 2,
+      :value_unique  => 0,
+      :view => 1,
+      :formated => 3,
+      :label => "Numero"          
+    })
+    @field.save
+  end
+  
+  def addtextarea
+    @form = Form.find(params[:form_id])
+    @field = @form.fields.build
+    @field.assign_attributes({
+      :descryption => 3, # textarea
+      :lenght => 1,
+      :value_unique  => 0,
+      :view => 1,
+      :formated => 1          
+    })
+    @field.save
   end
   
   def remfield

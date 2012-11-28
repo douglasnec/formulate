@@ -5,7 +5,9 @@ Formulate::Application.routes.draw do
 
   resources :forms do
     resources :fields
-    get 'addtext'  
+    get 'addtext'
+    get 'addtextnumeric'
+    get 'addtextarea'  
     delete 'remfield'
     post 'getfield'
     post 'update_field'

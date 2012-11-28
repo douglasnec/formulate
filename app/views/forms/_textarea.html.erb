@@ -3,7 +3,7 @@
 		<%= label_field(field) %>
 	</label>
 	<div>
-		<input type="text" id="Field<%= field.id %>" name="Field" class="text <%= lenght_input(field) %> field" onkeynup="handleInput(this);" onchange="handInput(this);" readonly="readonly" value="<%= field.predefined if field.predefined %>">
+		<textarea name="Field" class="text" id="Field<%= @field.id %>" readonly="readonly" rows="<%= rows_of_textarea %>"><%= @field.predefined if @field.predefined %></textarea>		
 	</div>	
 	<p id="instruction<%= field.id %>" class="instruct"><%= field.instruction %></p>
 	<div id="fa<%= field.id %>" class="fieldActions">

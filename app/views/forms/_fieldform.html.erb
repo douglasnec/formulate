@@ -21,21 +21,20 @@ $('#field_label').change(function(){
   <li id="listTitle" class="field">  	
   	<%= f.hidden_field :form_id %>
     <%= f.hidden_field :id%>
-    <%= f.hidden_field :descryption, :value => "1" %>   	
+    <%= f.hidden_field :descryption %>   	
   </li>  
   <div class="field">
     <label><%= f.label :lenght, "Field Size:" %></label>    
-    <%= select_tag "field[lenght]", options_for_select([['Small', 0], ['Medium', 1], ['Large', 2]], 2)  %>
+    <%= select_tag "field[lenght]", options_for_select([['Small', 0], ['Medium', 1], ['Large', 2]], @field.lenght)  %>
   </div>
   <div class="field-options">
     <label><strong>Options</strong></label>
-    Required ? <%= check_box_tag "field[value_unique]",  "1", :onclick => "addremRequired();" %>
+    Required ? <%= check_box_tag "field[value_unique]",  "1", verificaRequired, :onclick => "addremRequired();" %>
   </div>
   <div class="field-options">
     <label><strong>Show Field to</strong></label>
-    <%= verificaShow('1')+" "+verificaShow('2')  %>
-    <%= radio_button_tag "field[view]",  "1", false, :onclick => "showField(1);", :checked => verificaShow('1') %> Everyone <br />
-    <%= radio_button_tag "field[view]",  "2", false, :onclick => "showField(2);", :checked => verificaShow('2') %> Admin Only <br />
+    <%= radio_button_tag "field[view]",  "1", verificaShow(1), :onclick => "showField(1);" %> Everyone <br />
+    <%= radio_button_tag "field[view]",  "2", verificaShow(2), :onclick => "showField(2);" %> Admin Only <br />
   </div>
   <div class="field-options">
   	<label><strong>Range</strong></label>    
@@ -48,7 +47,7 @@ $('#field_label').change(function(){
     		<tr>
 				<td class="left"><%= f.number_field :min, :class=> 'medium' %></td>
 				<td class="left"><%= f.number_field :max, :class => 'medium' %> </td>
-				<td class="left"><%= select_tag "field[formated]", options_for_select([['Characters', 1], ['Words', 2]], @field.formated), :class => 'formated-select'%></td>  		
+				<td class="left"><%= select_tag "field[formated]", options_for_select(verifyTypeFormated(), @field.formated), :class => 'formated-select'%></td>				  		
     		</tr>
     	</table>    
   </div>
@@ -64,3 +63,15 @@ $('#field_label').change(function(){
     <%= link_to "Enviar", "#", :onclick => "salvarField();", :class => "btn", :remote => true %>
   </div>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+

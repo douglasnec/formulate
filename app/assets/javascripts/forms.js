@@ -76,7 +76,7 @@ function salvarField(){
 		
 	// tratando radio 'show field to'
 	var view = 1
-	if($('#field_view_0').attr('checked') == "checked")
+	if($('#field_view_2').attr('checked') == "checked")
 		view = 2
 	
 	$.post('/forms/update_field',
@@ -95,7 +95,7 @@ function salvarField(){
 		'lenght': $('#field_lenght').val() 
 	},
 	function(retorno){
-		alert(retorno)			
+				
 	},
 	'html'			
 );
